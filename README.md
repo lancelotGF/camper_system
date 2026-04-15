@@ -1,60 +1,63 @@
-## Установка
-- Ко всем ```include```
+## Installation
+- In all ```include```
 ```pawn
-#define USE_CUSTOM_FUEL_FOR_CAMPER //Если нужно добавить топливо из вашего мода
+#define USE_CUSTOM_FUEL_FOR_CAMPER //If you need to add fuel to the camper
 #include <camper>
 ```
 
-- В ```OnGameModeInit``` после подключения к БД
+- In ```OnGameModeInit``` after connecting to the database
 ```pawn
-camper_InitMysqlHandle(/*переменная для подключения*/); //Например dbHandle
+camper_InitMysqlHandle(/*connection variable*/); //For example, dbHandle
 ```
 
 
-- В самый конец ```OnPlayerSpawn``` добавляем:
+- At the very end of ```OnPlayerSpawn```, add:
 ```pawn
 OnPlayerSpawnCamper(playerid);
 ```
 
 
-- В конец мода
+- At the end of the mod
 ```pawn
-//Топливо
+//Fuel
 stock SetCamperFuel(vehicleid)
 {
-    VehicleInfo[vehicleid] = 100; // VehicleInfo Меняем на свой массив, где хранится топливо
+    VehicleInfo[vehicleid] = 100; // Replace VehicleInfo with your own array where fuel is stored
 }
 
-//Деньги
+// Money
 stock camper_GetPlayerMoney(playerid)
 {
-    return PlayerInfo[playerid][pMoney]; //PlayerInfo[playerid][pMoney] Меняем на свое
+    return PlayerInfo[playerid][pMoney]; // Replace PlayerInfo[playerid][pMoney] with your own
 }
 
 stock camper_SetPlayerMoney(playerid, cmp_money)
 {
-    PlayerInfo[playerid][pMoney] += cmp_money; //PlayerInfo[playerid][pMoney] Меняем на свое
+    PlayerInfo[playerid][pMoney] += cmp_money; //Replace PlayerInfo[playerid][pMoney] with your own
 }
 
-//Маты
+//Materials
 stock camper_GetPlayerMats(playerid)
 {
-    return PlayerInfo[playerid][pMats]; //PlayerInfo[playerid][pMats] Меняем на свое
+    return PlayerInfo[playerid][pMats]; //Replace PlayerInfo[playerid][pMats] with your own
 }
 
 stock camper_SetPlayerMats(playerid, cmp_mats)
 {
-    layerInfo[playerid][pMats] += cmp_mats; //PlayerInfo[playerid][pMats] Меняем на свое
+    PlayerInfo[playerid][pMats] += cmp_mats; //Replace PlayerInfo[playerid][pMats] with your own
 }
 
-//Наркотики
+//Drugs
 stock camper_GetPlayerDrugs(playerid)
 {
-    return PlayerInfo[playerid][pDrugs]; //PlayerInfo[playerid][pDrugs] Меняем на свое
+    return PlayerInfo[playerid][pDrugs]; //PlayerInfo[playerid][pDrugs] Replace with your own
 }
 
 stock camper_SetPlayerDrugs(playerid, cmp_drugs)
 {
-    PlayerInfo[playerid][pDrugs] += cmp_drugs; //PlayerInfo[playerid][pDrugs] Меняем на свое
+    PlayerInfo[playerid][pDrugs] += cmp_drugs; //PlayerInfo[playerid][pDrugs] Replace with your own
 }
 ```
+
+
+Translated with DeepL.com (free version)
